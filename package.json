@@ -1,0 +1,39 @@
+{
+  "name": "redux-socket-middleware",
+  "version": "0.0.1",
+  "description": "Redux middleware that dispatches an action to all connected clients",
+  "author": "Bram Devries <bram@madewithlove.be>",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/madewithlove/redux-socket-middleware.git"
+  },
+  "keywords": [
+    "redux",
+    "sockets",
+    "socket.io",
+    "middleware",
+    "redux-middleware",
+    "flux"
+  ],
+  "files": [
+    "lib",
+    "src"
+  ],
+  "scripts": {
+    "build": "babel src --out-dir lib",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "babel": "^6.3.26",
+    "babel-cli": "^6.4.0",
+    "babel-core": "^6.4.0",
+    "babel-eslint": "^5.0.0-beta6",
+    "babel-plugin-add-module-exports": "^0.1.2",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-stage-0": "^6.3.13",
+    "eslint": "^1.10.3",
+    "eslint-config-airbnb": "^3.0.2"
+  }
+}
