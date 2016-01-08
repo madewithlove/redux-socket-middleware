@@ -37,5 +37,8 @@
     "babel-preset-stage-0": "^6.3.13",
     "eslint": "^1.10.3",
     "eslint-config-airbnb": "^3.0.2"
+  },
+  "dependencies": {
+    "deepmerge": "^0.2.10"
   }
 }
