@@ -1,10 +1,11 @@
 
 import merge from 'deepmerge';
-import {SOCKET_DISPATCH, SOCKET_RECEIVE_ACTION, SOCKET_CONNECT} from './constants';
+import {SOCKET_DISPATCH, SOCKET_RECEIVE_ACTION, SOCKET_CONNECT, SOCKET_DISCONNECT} from './constants';
 
 const defaultOptions = {
   blacklist: [
     SOCKET_CONNECT,
+    SOCKET_DISCONNECT,
   ],
 };
 
@@ -26,10 +27,26 @@ export default function socketMiddleware(options = defaultOptions) {
     // We want to intercept a couple of actions related to sockets.
     switch (action.type) {
       case SOCKET_CONNECT:
+
+        if (!socket) {
           socket = options.resolveSocket(action.url);
           socket.on(SOCKET_RECEIVE_ACTION, action => {
             store.dispatch({...action, emitted: true});
           });
+
+
+          socket.on('disconnect', () => {
+            store.dispatch({
+              type: SOCKET_DISCONNECT,
+            });
+          });
+
+          socket.on('reconnect', () => {
+            store.dispatch({
+              type: SOCKET_CONNECT,
+            });
+          });
+        }
         break;
     }
 
