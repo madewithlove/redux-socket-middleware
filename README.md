@@ -15,4 +15,5 @@ _Documentation on how to use this middleware will follow once a 0.1.0 release is
 * [ ] Silently fail when disconnecting from socket
 * [ ] Switch to whitelisting actions instead of blacklisting (to prevent overflowing your socket server with actions fired from within a library)
 * [ ] Cleaner API to whitelist action types, eg whitelisting an entire namespace: `Acme/***` ect.
-* [ ] "agnostic" package that works with web sockets instead of socket.io specifically.
+* [ ] "agnostic" package so that developers can choose which backend implementation to use (by making a wrapper around emitting/receiving events)
+* [ ] Able to choose when to connect to the socket server, currently this is when redux is initalized but in certain (most) cases you want to load some initial data before connecting to a socket. You should be able to by dispatching an action.
