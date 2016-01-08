@@ -3,10 +3,7 @@ import merge from 'deepmerge';
 import {SOCKET_DISPATCH, SOCKET_RECEIVE_ACTION, SOCKET_CONNECT, SOCKET_DISCONNECT} from './constants';
 
 const defaultOptions = {
-  blacklist: [
-    SOCKET_CONNECT,
-    SOCKET_DISCONNECT,
-  ],
+  actions: [],
 };
 
 export default function socketMiddleware(options = defaultOptions) {
@@ -17,7 +14,7 @@ export default function socketMiddleware(options = defaultOptions) {
   const shouldEmit = action => {
     return socket // We need a socket server
         && !action.emitted // If the action was emitted before, we will not emit it again.
-        && !options.blacklist.includes(action.type); // Blacklisted actions are not emitted.
+        && options.actions.includes(action.type); // The action type needs to be included
   };
 
   return store => next => action => {
