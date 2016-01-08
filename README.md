@@ -11,5 +11,8 @@ _Documentation on how to use this middleware will follow once a 0.1.0 release is
 ### TODO
 
 * [ ] Write tests
+
+__Nice to haves__
+
 * [ ] Cleaner API to whitelist action types, eg whitelisting an entire namespace: `Acme/***` ect.
 * [ ] "agnostic" package that works with web sockets instead of socket.io specifically.
