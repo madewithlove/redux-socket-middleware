@@ -1,6 +1,6 @@
 {
   "name": "redux-socket-middleware",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Redux middleware that dispatches an action to all connected clients",
   "author": "Bram Devries <bram@madewithlove.be>",
   "license": "MIT",
