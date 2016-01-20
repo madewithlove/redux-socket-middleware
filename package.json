@@ -25,11 +25,15 @@
     "build": "babel src --out-dir lib",
     "build:watch": "babel src --watch --out-dir lib",
     "lint": "eslint .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install": "npm run build"
   },
   "devDependencies": {
     "babel-plugin-add-module-exports": "^0.1.2",
-    "madewithlove-webpack-config": "github:madewithlove/webpack-config"
+    "madewithlove-webpack-config": "github:madewithlove/webpack-config",
+    "react": "^0.14.6",
+    "webpack": "^1.12.11",
+    "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
     "deepmerge": "^0.2.10"
