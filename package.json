@@ -29,6 +29,7 @@
     "install": "npm run build"
   },
   "devDependencies": {
+    "babel-cli": "^6.4.5",
     "babel-plugin-add-module-exports": "^0.1.2",
     "madewithlove-webpack-config": "github:madewithlove/webpack-config",
     "react": "^0.14.6",
