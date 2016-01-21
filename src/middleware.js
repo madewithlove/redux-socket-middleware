@@ -43,12 +43,14 @@ export default function socketMiddleware(options = defaultOptions) {
 
     return next => action => {
       let result;
-        if (_.isFunction(action)) {
-            result = next(action(store.dispatch));
-        } else {
-            // We first execute the action locally
-            result = next(action);
-        }
+
+      // If the action is a function, execute it
+      if (_.isFunction(action)) {
+          result = action(store.dispatch);
+      } else {
+          // We first execute the action locally
+          result = next(action);
+      }
 
       // We want to intercept a couple of actions related to sockets.
       switch (action.type) {
