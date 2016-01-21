@@ -1,6 +1,7 @@
 
 import merge from 'deepmerge';
 import {SOCKET_DISPATCH, SOCKET_RECEIVE_ACTION, SOCKET_CONNECT, SOCKET_DISCONNECT} from './constants';
+import _ from 'lodash';
 
 const defaultOptions = {
   actions: [],
@@ -41,8 +42,13 @@ export default function socketMiddleware(options = defaultOptions) {
     }
 
     return next => action => {
-      // We first execute the action locally
-      const result = next(action);
+      let result;
+        if (_.isFunction(action)) {
+            result = next(action(store.dispatch));
+        } else {
+            // We first execute the action locally
+            result = next(action);
+        }
 
       // We want to intercept a couple of actions related to sockets.
       switch (action.type) {
